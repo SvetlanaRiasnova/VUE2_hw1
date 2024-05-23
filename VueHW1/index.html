@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Часть 2. Задание по Vue
+
+    1. Создать кнопку "Перевернуть". При клике на кнопку текст кнопки должен перевернуться и отобразиться в обратном порядке.
+    2. Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить".
+    3. *Дополнительное задание: При клике на элемент списка он должен быть удален. (по желанию) -->
+    
+    <div id="app">
+        <button @click="rotateBtn(textBtn)">{{textBtn}}</button>
+        <ol >
+            <li v-for="(li, index) in list" @click="removeElementFromList(index)">{{`${li}`}}</li>
+        </ol>
+        <button @click="addElementToList">Добавить</button>
+    </div>
+    <script src="https://unpkg.com/vue@^2.0.0"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                textBtn: 'Перевернуть',
+                list: [
+                    'элемент1',
+                    'элемент2',
+                    'элемент3',
+                ]
+            },
+            methods: { 
+                rotateBtn: function(textBtn) {
+                this.textBtn = this.textBtn.split('').reverse().join('');
+                },       
+
+                addElementToList: function() 
+                {this.list.push(' Новый элемент списка')},
+
+                removeElementFromList: function(index) {
+                    this.list.splice(index, 1)
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
