@@ -42,7 +42,7 @@ body {
 }
 
 .intro {
-  background-image: url("/img/intro_image.png");
+  background-image: url("img/intro_image.png");
   min-height: 758px;
   position: relative;
 }
