@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Часть 2. Задание Vue
+
+    Вы разрабатываете приложение для отображения и сортировки списка товаров. У вас есть массив объектов products, где каждый объект представляет товар с его названием и ценой. Вам необходимо отобразить список товаров и предоставить пользователю возможность сортировать товары по цене (по возрастанию и по убыванию). -->
+    <div id="app">
+        <div class="products">
+            <li class="product" v-for="product in sortedProducts" :key="product.id">{{product.name}} - {{product.price}} $ </li>
+            <button @click="sortDirection = 'up'">по возрастанию</button>
+            <button @click="sortDirection = 'down'">по убыванию</button>
+            <button @click="sortDirection = ''">сброс  фильтра</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@^2.0.0"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                products: [ 
+                    {
+                        id: 0,
+                        name: "Milk",
+                        price: 34,
+                    },
+                    {
+                        id: 1,
+                        name: "Tea",
+                        price: 20,
+                    },
+                    {
+                        id: 2,
+                        name: "Water",
+                        price: 36,
+                    },
+                ],
+
+                sortDirection: " ",
+
+            },
+            computed: { 
+                sortedProducts(){
+                    switch (this.sortDirection) {
+
+                        case "up":
+                            return [...this.products].sort((a, b) => a.price - b.price);
+                            
+                        case "down":
+                            return [...this.products].sort((a, b) => b.price - a.price);
+                        
+                        default:
+                            return this.products;
+                    }
+                },
+            }
+        });
+
+    </script>
+</body>
+</html>
