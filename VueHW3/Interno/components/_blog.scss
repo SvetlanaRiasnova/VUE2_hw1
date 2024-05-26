@@ -1,0 +1,135 @@
+@import './variables';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    background-image: url("img/Banner.png");
+    min-height: 356px;
+    @include flexCenter;
+    align-items: flex-end;
+    &__info {
+        text-align: center;
+        background-color: #fff;
+        padding: 41px;
+        border-radius: 37px 37px 0px 0px;
+        &_header {
+            @include h2Style;
+            text-align: left;
+        }
+        &_breadcrump {
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 33px;
+        }
+    }
+}
+.latest__article {
+    padding-top: 150px;
+    &_wrapper {
+        border: 1px solid #e7e7e7;
+        display: flex;
+        gap: 62px;
+        padding: 22px;
+        border-radius: 62px;
+        align-items: center;
+    }
+    &_title {
+        margin-bottom: 30px;
+        @include h2Style;
+ 
+    }
+    &_image {
+        max-width: 569px;
+        border-radius: 50px;
+    }
+    &_content{
+        min-height: 478px;
+        padding-top: 51px;
+        &-header {
+            font-family: $familyTitle;
+            color: $headerColor;
+            font-size: 25px;
+        }
+        &-text {
+            padding-top: 22px;
+            margin-bottom: 41px;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+        }
+    }
+    &_bottom-wrap {
+        padding-top: 30px;
+        width: 489px;
+        @include flexCenter;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    &_btn {
+        width: 52px;
+        background-color: inherit;
+        border: none;
+        &svg circle{
+            width: 52px;
+            cursor: pointer;
+        }
+    }
+    // & svg circle{
+    //     cursor: pointer;
+    // }
+}
+.blogs__title{
+    text-align: left;
+}
+.blog_page {
+    flex-wrap: wrap;
+}
+
+.count__page {
+    margin-top: 51px;
+    padding-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    &_wrap {
+       display: flex;
+       gap: 20px;
+    }
+    &_number {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-wrap: nowrap;
+       border: 1px #cda274 solid;
+       width: 52px;
+       height: 52px;
+       border-radius: 52px;
+       text-decoration: none;
+       &_value {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          text-transform: capitalize;
+       }
+       &:hover {
+          background: #f4f0ec;
+          border: none;
+          width: 54px;
+          height: 54px;
+       }
+    }
+    & circle#Elips:hover {
+       fill: #f4f0ec;
+       & circle {
+          stroke: none;
+       }
+    }
+ }
+ .footer__blog {
+    padding-top: 0;
+ }
